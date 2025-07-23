@@ -60,7 +60,7 @@ export const patchContactsController = async (req, res) => {
 
     res.status(200).json({
         status: 200,
-        message: `Successfully patched a student!`,
-        data: result.student,
+        message: `Successfully patched a contact!`,
+        data: result.contact,
     });
 };
