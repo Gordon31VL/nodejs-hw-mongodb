@@ -19,14 +19,14 @@ export const errorHandler = (err, req, res, next) => {
         return;
     }
 
-    if (err.name === 'ValidationError') {
-        res.status(400).json({
-            status: 400,
-            message: 'Validation failed',
-            data: err.message
-        });
-        return;
-    }
+    // if (err.name === 'ValidationError') {
+    //     res.status(400).json({
+    //         status: 400,
+    //         message: 'Validation failed',
+    //         data: err.message
+    //     });
+    //     return;
+    // }
 
     res.status(500).json({
         status: 500,
