@@ -3,7 +3,7 @@ import { model, Schema } from "mongoose";
 const contactsSchema = new Schema({
     name: {
         type: String,
-        required: true, 
+        required: true,
     },
     phoneNumber: {
         type: String,
@@ -23,10 +23,16 @@ const contactsSchema = new Schema({
         enum: ['work', 'home', 'personal'],
         required: true,
         default: 'personal',
+    },
+    userId: {
+        type: Schema.Types.ObjectId,
+        ref: 'users',
+        required: true,
     }
 }, {
     timestamps: true,
     versionKey: false,
 });
+
 
 export const ContactsCollection = model('contacts', contactsSchema);
