@@ -11,6 +11,9 @@
   },
   "servers": [
     {
+      "url": "https://nodejs-hw-mongodb-3-z5z5.onrender.com"
+    },
+    {
       "url": "http://localhost:3000"
     }
   ],
@@ -18,10 +21,6 @@
     {
       "name": "Contacts",
       "description": "Operation about contacts."
-    },
-    {
-      "name": "Auth",
-      "description": "Auth operation."
     }
   ],
   "paths": {
