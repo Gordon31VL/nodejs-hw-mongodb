@@ -1,0 +1,74 @@
+tags:
+  - Contacts
+summary: Update contact by ID
+operationId: updateContactById
+description: Updates specific fields of a contact by its ID
+security:
+  - bearerAuth: []
+parameters:
+  - name: id
+    in: path
+    required: true
+    description: ID of the contact to update
+    schema:
+      type: string
+      format: objectId
+requestBody:
+  description: Fields to update on the contact
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+            description: Name of the contact
+          phoneNumber:
+            type: string
+            description: Phone number of the contact
+          email:
+            type: string
+            format: email
+            description: Email address of the contact
+          isFavourite:
+            type: boolean
+            description: Whether the contact is marked as favorite
+          contactType:
+            type: string
+            enum: [work, home, personal]
+            description: Type of the contact
+          photo:
+            type: string
+            format: file
+            description: Contact photo image file
+responses:
+  '200':
+    description: Successfully patched a contact!
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully patched a contact!
+            data:
+              type: array
+              items:
+                $ref: ../../../components/schemas/contact.yaml
+  '404':
+    description: Contact not found
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/responses/errorResponses.yaml#/NotFound
+  '401':
+    description: Not authorized
+    content:
+      application/json:
+        schema:
+          $ref: ../../../components/responses/errorResponses.yaml#/Unauthorized
