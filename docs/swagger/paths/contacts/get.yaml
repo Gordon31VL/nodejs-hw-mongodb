@@ -22,7 +22,6 @@ parameters:
       type: integer
       minimum: 1
       default: 10
-  
   - name: sortBy
     in: query
     description: Field to sort by
@@ -39,25 +38,6 @@ parameters:
       type: string
       enum: [asc, desc]
       default: asc
-  
-  - name: name
-    in: query
-    description: Filter contacts by name (partial match)
-    required: false
-    schema:
-      type: string
-  - name: phoneNumber
-    in: query
-    description: Filter contacts by phone number (partial match)
-    required: false
-    schema:
-      type: string
-  - name: email
-    in: query
-    description: Filter contacts by email (partial match)
-    required: false
-    schema:
-      type: string
   - name: isFavourite
     in: query
     description: Filter contacts by favorite status
@@ -71,7 +51,7 @@ parameters:
     schema:
       type: string
       enum: [work, home, personal]
-
+      default: personal
 responses:
   '200':
     description: Successfully found contacts
@@ -90,6 +70,24 @@ responses:
               type: array
               items:
                 $ref: ../../components/schemas/contact.yaml
+            page:
+              type: integer
+              example: 1
+            perPage:
+              type: integer
+              example: 10
+            totalItems:
+              type: integer
+              example: 1
+            totalPages:
+              type: integer
+              example: 1
+            hasNextPage:
+              type: boolean
+              example: false
+            hasPrevPage:
+              type: boolean
+              example: false
   '401':
     description: Not authorized
     content:

@@ -198,7 +198,7 @@
                   },
                   "photo": {
                     "type": "string",
-                    "format": "file",
+                    "format": "binary",
                     "description": "Contact photo image file"
                   }
                 }
@@ -325,33 +325,6 @@
             }
           },
           {
-            "name": "name",
-            "in": "query",
-            "description": "Filter contacts by name (partial match)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "phoneNumber",
-            "in": "query",
-            "description": "Filter contacts by phone number (partial match)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "email",
-            "in": "query",
-            "description": "Filter contacts by email (partial match)",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "isFavourite",
             "in": "query",
             "description": "Filter contacts by favorite status",
@@ -371,7 +344,8 @@
                 "work",
                 "home",
                 "personal"
-              ]
+              ],
+              "default": "personal"
             }
           }
         ],
@@ -396,6 +370,30 @@
                       "items": {
                         "$ref": "#/components/schemas/contact"
                       }
+                    },
+                    "page": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "perPage": {
+                      "type": "integer",
+                      "example": 10
+                    },
+                    "totalItems": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "totalPages": {
+                      "type": "integer",
+                      "example": 1
+                    },
+                    "hasNextPage": {
+                      "type": "boolean",
+                      "example": false
+                    },
+                    "hasPrevPage": {
+                      "type": "boolean",
+                      "example": false
                     }
                   }
                 }
@@ -462,7 +460,7 @@
                   },
                   "photo": {
                     "type": "string",
-                    "format": "file",
+                    "format": "binary",
                     "description": "Contact photo image file"
                   }
                 }

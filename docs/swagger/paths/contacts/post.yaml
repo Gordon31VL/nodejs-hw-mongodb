@@ -32,7 +32,7 @@ requestBody:
             description: Type of the contact
           photo:
             type: string
-            format: file
+            format: binary
             description: Contact photo image file
 responses:
   '201':
