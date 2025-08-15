@@ -12,6 +12,7 @@ requestBody:
     multipart/form-data:
       schema:
         type: object
+        required: [name, phoneNumber, contactType]
         properties:
           name:
             type: string

@@ -67,27 +67,30 @@ responses:
               type: string
               example: Successfully found contacts!
             data:
-              type: array
-              items:
-                $ref: ../../components/schemas/contact.yaml
-            page:
-              type: integer
-              example: 1
-            perPage:
-              type: integer
-              example: 10
-            totalItems:
-              type: integer
-              example: 1
-            totalPages:
-              type: integer
-              example: 1
-            hasNextPage:
-              type: boolean
-              example: false
-            hasPrevPage:
-              type: boolean
-              example: false
+              type: object
+              properties:
+                data:
+                  type: array
+                  items:
+                    $ref: ../../components/schemas/contact.yaml
+                page:
+                  type: integer
+                  example: 1
+                perPage:
+                  type: integer
+                  example: 10
+                totalItems:
+                  type: integer
+                  example: 1
+                totalPages:
+                  type: integer
+                  example: 1
+                hasNextPage:
+                  type: boolean
+                  example: false
+                hasPrevPage:
+                  type: boolean
+                  example: false
   '401':
     description: Not authorized
     content:
